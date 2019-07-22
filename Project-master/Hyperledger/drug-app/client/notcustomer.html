@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Manufacturer Hyperledger Fabric Drug</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="hyper.svg">
+    <link href="bootstrap.css" rel="stylesheet">
+    <link href="signin.css" rel="stylesheet">
+
+    <script>
+        function validateForm() {
+          var x = document.forms["myForm"]["uname"].value;
+          var y = document.forms["myForm"]["pwd"].value;
+          if (x == "cipla" && y == "cipla" ) {
+            var queryString = "?para1=" + x + "&para2=" + y;
+            window.location.href = "manufacturer.html" + queryString;
+            return false;
+          }
+          if (x == "ranbaxy" && y == "ranbaxy" ) {
+            var queryString = "?para1=" + x + "&para2=" + y;
+            window.location.href = "manufacturer.html" + queryString;
+            return false;
+          }
+          if (x == "fedex" && y == "fedex" ) {
+            var queryString = "?para1=" + x + "&para2=" + y;
+            window.location.href = "logistician.html" + queryString;
+            return false;
+          }
+          if (x == "tnt" && y == "tnt" ) {
+            var queryString = "?para1=" + x + "&para2=" + y;
+            window.location.href = "logistician.html" + queryString;
+            return false;
+          }
+          if (x == "apollo" && y == "apollo" ) {
+            var queryString = "?para1=" + x + "&para2=" + y;
+            window.location.href = "shopkeeper.html" + queryString;
+            return false;
+          }
+          if (x == "fortis" && y == "fortis" ) {
+            var queryString = "?para1=" + x + "&para2=" + y;
+            window.location.href = "shopkeeper.html" + queryString;
+            return false;
+          }
+        }
+    </script>
+</head>
+<body class="text-center">
+    <form class="form-signin" name="myForm" action="" onsubmit="return validateForm()" method="post">
+      <img class="mb-4" src="hyper.svg" alt="" width="72" height="72">
+      <h1 class="h3 mb-3 font-weight-normal">Hyperledger</h1><br>
+            <input type="text" class="form-control" name="uname" placeholder="Username" required="" autofocus="">
+            <input type="password" name="pwd" class="form-control" placeholder="Password" required="">
+            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <p class="mt-5 mb-3 text-muted">© Hyperledger Supply Chain</p>
+    </form>
+</body>
+</html>

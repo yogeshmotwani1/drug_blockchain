@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hyperledger Fabric Drug Application</title>
+    <link rel="icon" href="favicon.png" type="image/gif">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body ng-app="application" ng-controller="appController">
+    <header>
+      <div id="left_header">Hyperledger Fabric Drug Application</div>
+    </header>
+    <div id="body">
+      <div class="form-group">
+        <label>Query All Drug Produced</label><br>
+        <input id="queryAllDrug" type="submit" value="Query All" class="btn btn-primary" ng-click="queryAllDrug()">
+      </div>
+      <table id="all_drug" class="table" align="center">
+        <tr>
+          <th>Serial No</th>
+          <th>Expiry</th>
+          <th>Manufacturer</th>
+          <th>BatchNo</th>
+          <th>DrugName</th>
+          <th>Owner</th>
+          <th>Suitable temp</th>
+          <th>Suitable humidity</th>
+          <th>Undergone temp</th>
+          <th>Undergone humidity</th>
+          <th>Sold</th>
+        </tr>
+        <tr ng-repeat="drug in all_drug">
+          <td>{{drug.Key}}</td>
+          <td>{{drug.expiry}}</td>
+          <td>{{drug.manufacturer}}</td>
+          <td>{{drug.batchno}}</td>
+          <td>{{drug.drugname}}</td>
+          <td>{{drug.owner}}</td>
+          <td>{{drug.stemp}}</td>
+          <td>{{drug.shumidity}}</td>
+          <td>{{drug.utemp}}</td>
+          <td>{{drug.uhumidity}}</td>
+          <td>{{drug.sold}}</td>
+        </tr>
+      </table><br><br>
+      <div class="form-group">
+        <label>Query Batch</label><br>
+        Enter Batch No : <br><br><input id="batch_no" class="form-group" type="text" placeholder="Ex: 9230" ng-model="batch_no"><br>
+        <input id="queryBatch" type="submit" value="Query Batch" class="btn btn-primary" ng-click="queryBatch()"><br>
+      </div>
+      <table id="all_batch" class="table" align="center">
+        <tr>
+          <th>Serial No</th>
+          <th>Expiry</th>
+          <th>Manufacturer</th>
+          <th>BatchNo</th>
+          <th>DrugName</th>
+          <th>Owner</th>
+          <th>Suitabletemp</th>
+          <th>Suitable humidity</th>
+          <th>Undergone temp</th>
+          <th>Undergone humidity</th>
+          <th>Sold</th>
+        </tr>
+        <tr ng-repeat="drug2 in all_batch">
+          <td>{{drug2.Key}}</td>
+          <td>{{drug2.expiry}}</td>
+          <td>{{drug2.manufacturer}}</td>
+          <td>{{drug2.batchno}}</td>
+          <td>{{drug2.drugname}}</td>
+          <td>{{drug2.owner}}</td>
+          <td>{{drug2.stemp}}</td>
+          <td>{{drug2.shumidity}}</td>
+          <td>{{drug2.utemp}}</td>
+          <td>{{drug2.uhumidity}}</td>
+          <td>{{drug2.sold}}</td>
+        </tr>
+      </table><br><br>
+      <div class="form-group">
+        <label>Query a Specific Drug</label><br>
+        Enter SerialNo : <input id="createName" class="form-control" type="text" placeholder="Ex: 3" ng-model="drug_id"><br>
+        <input id="querySubmit" type="submit" value="Query SerialNo" class="btn btn-primary" ng-click="queryDrug()"><br>
+      </div>
+      <table id="query_drug" class="table" align="center">
+        <tr>
+          <th>Expiry</th>
+          <th>Manufacturer</th>
+          <th>BatchNo</th>
+          <th>DrugName</th>
+          <th>Owner</th>
+          <th>Suitable temp</th>
+          <th>Suitable humidity</th>
+          <th>Undergone temp</th>
+          <th>Undergone humidity</th>
+          <th>Sold</th>
+        </tr>
+        <tr>
+          <td>{{query_drug.expiry}}</td>
+          <td>{{query_drug.manufacturer}}</td>
+          <td>{{query_drug.batchno}}</td>
+          <td>{{query_drug.drugname}}</td>
+          <td>{{query_drug.owner}}</td>
+          <td>{{query_drug.stemp}}</td>
+          <td>{{query_drug.shumidity}}</td>
+          <td>{{query_drug.utemp}}</td>
+          <td>{{query_drug.uhumidity}}</td>
+          <td>{{query_drug.sold}}</td>
+        </tr>
+      </table><br><br>
+
+    </div>
+  </body>
+    <script type="text/javascript" src="app.js"> </script>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Shopkeeper Hyperledger Fabric Drug</title>
+    <link rel="icon" href="favicon.png" type="image/gif">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="text/javascript" src="app.js">
+    </script>
+    <script>
+      var owner_name;
+        $(document).ready(function(){
+          var queryString = decodeURIComponent(window.location.search);
+          queryString = queryString.substring(1);
+          var queries = queryString.split("&");
+          var owner = queries[0].split("=");
+          owner_name = owner[1];
+          manf=document.getElementsByName('mnf_txt')[0].value = owner_name;
+        });
+          function test(){
+            angular.element(document.getElementById('queryBatch')).scope().queryOwner(owner_name);
+          }
+          function test2(){
+            angular.element(document.getElementById('soldSubmit')).scope().soldDrug(owner_name);
+          }
+        </script>
+  </head>
+  <body ng-app="application" ng-controller="appController">
+    <header>
+      <div id="left_header" align="center"><b>Shopkeeper</b> Hyperledger Fabric Drug Application
+        <input id="transferSubmit" type="button" value="Logout" style="float:right" class="btn btn-primary" onClick="parent.location='notcustomer.html'">
+      </div>
+    </header>
+
+    <div id="body" align="center">
+      <div class="form-group">
+        <label>Query All</label><br>
+        <p><input id="queryBatch" type="submit" value="Query All" class="btn btn-primary" onclick="test()"></p>
+      </div>
+
+      <table id="all_owner" class="table" align="center">
+
+        <tr>
+          <th>Serial No</th>
+          <th>Expiry</th>
+          <th>Manufacturer</th>
+          <th>BatchNo</th>
+          <th>DrugName</th>
+          <th>Owner</th>
+          <th>Suitable temp</th>
+          <th>Suitable humidity</th>
+          <th>Undergone temp</th>
+          <th>Undergone humidity</th>
+          <th>Sold</th>
+        </tr>
+
+        <tr ng-repeat="drug in all_owner">
+          <td>{{drug.Key}}</td>
+          <td>{{drug.expiry}}</td>
+          <td>{{drug.manufacturer}}</td>
+          <td>{{drug.batchno}}</td>
+          <td>{{drug.drugname}}</td>
+          <td>{{drug.owner}}</td>
+          <td>{{drug.stemp}}</td>
+          <td>{{drug.shumidity}}</td>
+          <td>{{drug.utemp}}</td>
+          <td>{{drug.uhumidity}}</td>
+          <td>{{drug.sold}}</td>
+        </tr>
+      </table>
+
+      <br><br>
+      <div class="form-group">
+        <label>Medicine Sold</label><br>
+        Enter Serial No: <input class="form-control" type="text" name="assetSelect" placeholder="Ex: 2" ng-model="drug_id">
+        <input id="soldSubmit" type="submit" value="Sold" class="btn btn-primary" onclick="test2()">
+      </div>
+
+    </div>
+  </body>
+</html>

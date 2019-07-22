@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Medicine Verification</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.js"></script>
+    <script src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body ng-app="application" ng-controller="appController">
+
+    <header>
+      <div id="left_header" align="center">Dear Customer ! Please verify your medicine here</div>
+    </header>
+    
+    <div id="body" align="center">
+      <div class="form-group">
+        <label>Query Specific Medicine</label><br>
+        <input id="createName" style="display: inline"class="form-control" type="text" placeholder="Serial Number" ng-model="drug_id">
+        <input id="querySubmit" type="submit" value="Show" class="btn btn-primary" ng-click="queryDrug()">
+
+      <table id="query_drug" class="table" class="form-control" align="center">
+          
+          <tr><td>DrugName</td>
+          <td>{{query_drug.drugname}}</td></tr>  
+          <tr><td>Expiry</td>
+          <td>{{query_drug.expiry}}</td></tr>
+          <tr><td>Manufacturer</td>
+          <td>{{query_drug.manufacturer}}</td></tr>
+          <tr><td>BatchNo</td>
+          <td>{{query_drug.batchno}}</td></tr>
+          <tr><td>Owner</td>
+          <td>{{query_drug.owner}}</td></tr>
+          <tr><td>Suitable temp</td>
+          <td>{{query_drug.stemp}}</td></tr>
+          <tr><td>Suitable humidity</td>
+          <td>{{query_drug.shumidity}}</td></tr>
+          <tr><td>Undergone temp</td>
+          <td>{{query_drug.utemp}}</td></tr>
+          <tr><td>Undergone humidity</td>
+          <td>{{query_drug.uhumidity}}</td></tr>
+          <tr><td>Sold</td>
+          <td>{{query_drug.sold}}</td></tr>
+      </table>
+    </div>  
+      <input id="querySubmit" type="submit" value="Login" class="btn btn-primary" ng-click="redirect1()">
+    </div>
+
+  </body>
+    <script type="text/javascript" src="app.js"> </script>
+</html>
